@@ -1,0 +1,14 @@
+path = iplir.conf.txt
+
+id = 0x1620001f
+string = “tunnel.*18.0.0.100-19.0.0.110.*19.0.0.100-19.0.0.110”
+string1 = “tunnel.*19.0.0.1-19.0.0.1.*19.0.0.1-19.0.0.1”
+string2 = “ip.*173.18.0.1”
+
+id = 0x1620000b
+string = “virtualip.*11.0”
+string1 = “name.*Ad*”
+
+id = 0x1870000b
+string = “virtualip.*11.0”
+string1 = “name.*Ad*”
