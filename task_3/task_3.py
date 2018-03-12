@@ -55,7 +55,7 @@ def search_in_conf(path):
     id = None
 
     # parsing conf.txt
-    with open(path) as file:
+    with open(path, encoding="utf8") as file:
         for line in file:
             param = line.split('=')
 
