@@ -9,8 +9,9 @@ create_custom_file my_test_file 100MB C:\test_folder
 create_custom_file my_test_file 1024 C:\test_folder
 create_custom_file my_test_file 1KB C:\test_folder"""
 
-
+from random import choice
 import os
+from string import ascii_letters
 import sys
 
 
@@ -29,13 +30,10 @@ def create_custom_file(name, size, path):
         unit = size[len(size) - 2:len(size)]
         size_in_byte = get_size[unit.upper()](size[:-2])
 
-    string = 'Hello, i am custom file!\n'
     print('Creating file with param:\n  name = {}\n  path = {}\n  size = {}'.format(name, path_file, size_in_byte))
 
     with open(path_file, 'w') as file:
-
-        count_of_retry = size_in_byte // len(string)
-        file.write(string * count_of_retry)
+        file.write(size_in_byte*choice(ascii_letters))
 
     # check size of file:
     print('check size of file:\n  size of file = {} byte'.format(os.path.getsize(path_file)))
