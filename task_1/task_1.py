@@ -14,7 +14,7 @@ import os
 import sys
 
 
-def create_custom_file(size, path, name):
+def create_custom_file(name, size, path):
     assert size, 'Size is zero'
 
     path_file = os.path.join(path, name)
