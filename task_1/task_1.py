@@ -16,9 +16,12 @@ import sys
 
 
 def create_custom_file(name, size, path):
-    assert size, 'Size is zero'
+    print('Input data:\n  name = {}\n  path = {}\n  size = {}\n'.format(name, path, size))
+
+    assert os.path.isdir(path), 'Error argument "path": path does\'t exists'
 
     path_file = os.path.join(path, name)
+
     get_size = dict(KB=lambda size: int(size) * 1024 ** 1,
                     MB=lambda size: int(size) * 1024 ** 2,
                     GB=lambda size: int(size) * 1024 ** 3,
@@ -28,7 +31,14 @@ def create_custom_file(name, size, path):
         size_in_byte = int(size)
     else:
         unit = size[len(size) - 2:len(size)]
-        size_in_byte = get_size[unit.upper()](size[:-2])
+        try:
+            size_in_byte = get_size[unit.upper()](size[:-2])
+        except KeyError:
+            print('Error in dimensioning of size. Error in input date.\n')
+            print('Error:')
+            raise
+
+    assert size_in_byte, 'Error argument "size": size is zero'
 
     print('Creating file with param:\n  name = {}\n  path = {}\n  size = {}'.format(name, path_file, size_in_byte))
 

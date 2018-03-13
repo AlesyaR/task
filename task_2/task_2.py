@@ -19,7 +19,7 @@ def calculate_the_sum(list_numbers):
 
     print('Second method \'while\': Sum == {}'.format(sum))
 
-    # Second method - 'while'
+    # Second method - 'recursion'
     def recursion(list_numbers, current=0):
 
         if current is len(list_numbers):
